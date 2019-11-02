@@ -174,6 +174,24 @@
 
     print_r($consulta);
 
+  /**
+   * OUTPUT:
+   *     Array
+   *      (
+   *            [0] => Array
+   *                (
+   *                  [id] => 1
+   *                  [0] => 1
+   *                  [nombre] => Batman
+   *                  [1] => Batman
+   *                  [correo] => batman@wayne.com
+   *                  [2] => batman@wayne.com
+   *                  [telefono] => 1234567890
+   *                  [3] => 1234567890
+   *              )
+   *      )
+   */
+
     ?>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
