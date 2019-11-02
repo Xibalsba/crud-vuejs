@@ -166,8 +166,15 @@
           </div>
         </transition>
       </div>
-
     </div>
+    <?php
+    require_once "db.php";
+
+    $consulta = Conexion::query("SELECT * FROM usuarios");
+
+    print_r($consulta);
+
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
   </body>
