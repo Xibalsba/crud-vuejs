@@ -57,13 +57,33 @@ class Conexion{
    * @param  string $sql consulta SQL
    * @return string     respuesta del servidor
    */
-  public function query($sql){
+  public function query($sql, $params = []){
     $db = new self();
     $link = $db->conectar();
 
     $query = $link->prepare($sql);
-    $query->execute();
-    return $query->fetchAll();
+
+    if(!$query->execute($params)) {
+
+      $link->rollBack();
+      $error = $query->errorInfo();
+      throw new Exception($error[2]);
+
+    }
+
+    if(strpos($sql, 'SELECT') !== false) {
+      return $query->rowCount() > 0 ? $query->fetchAll() : false;
+    }  else if(strpos($sql, 'DELETE') !== false) {
+      if($query->rowCount() > 0) {
+        return true;
+      }
+      $link->rollBack();
+      return false;
+    } else {
+      return true;
+    }
+
+
   }
 }
 

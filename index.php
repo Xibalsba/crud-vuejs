@@ -169,8 +169,7 @@
     </div>
     <?php
     require_once "db.php";
-
-    $consulta = Conexion::query("SELECT * FROM usuarios");
+    $consulta = Conexion::query("DELETE FROM usuarios WHERE id=:id", ['id'=>'1']);
 
     print_r($consulta);
 
