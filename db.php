@@ -37,7 +37,6 @@ class Conexion{
     $this->db = DB_NAME;
     $this->user = DB_USER;
     $this->password = DB_PASS;
-    return $this;
   }
   /**
    * Conectar a la base de datos
@@ -73,16 +72,9 @@ class Conexion{
 
     if(strpos($sql, 'SELECT') !== false) {
       return $query->rowCount() > 0 ? $query->fetchAll() : false;
-    }  else if(strpos($sql, 'DELETE') !== false) {
-      if($query->rowCount() > 0) {
-        return true;
-      }
-      $link->rollBack();
-      return false;
     } else {
       return true;
     }
-
 
   }
 }

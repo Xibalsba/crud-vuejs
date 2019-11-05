@@ -167,31 +167,6 @@
         </transition>
       </div>
     </div>
-    <?php
-    require_once "db.php";
-    $consulta = Conexion::query("DELETE FROM usuarios WHERE id=:id", ['id'=>'1']);
-
-    print_r($consulta);
-
-  /**
-   * OUTPUT:
-   *     Array
-   *      (
-   *            [0] => Array
-   *                (
-   *                  [id] => 1
-   *                  [0] => 1
-   *                  [nombre] => Batman
-   *                  [1] => Batman
-   *                  [correo] => batman@wayne.com
-   *                  [2] => batman@wayne.com
-   *                  [telefono] => 1234567890
-   *                  [3] => 1234567890
-   *              )
-   *      )
-   */
-
-    ?>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="main.js"></script>
   </body>
