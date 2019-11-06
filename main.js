@@ -21,7 +21,7 @@ var app = new Vue({
           this.app.users = response.data;
           // console.log(this.app.users);
         }else{
-          this.app.errorMsg = "Error";
+          this.app.errorMsg = "No se pueden mostrar los datos.";
         }
       });
     },
@@ -42,10 +42,10 @@ var app = new Vue({
         // console.log(response);
         this.app.newUser = {nombre:"",correo:"",telefono:""};
         if(response.status == 200){
-          this.app.successMsg = "Usuario creado correctamente";
+          this.app.successMsg = "el usuario creado correctamente.";
           this.app.getAllUsers();
         }else{
-          this.app.errorMsg = "Ucurrió un error al agregar usuario";
+          this.app.errorMsg = "ocurrió un error al agregar usuario.";
         }
       });
     },
@@ -56,10 +56,10 @@ var app = new Vue({
         // console.log(response);
         this.app.currentUser = {};
         if(response.status == 200){
-          this.app.successMsg = "Usuario ha sido actualizado";
+          this.app.successMsg = "el usuario ha sido actualizado.";
           this.app.getAllUsers();
         }else{
-          this.app.errorMsg = "Ocurrió un error al actualizar los datos del usuario, inténtelo de nuevo.";
+          this.app.errorMsg = "ocurrió un error al actualizar los datos del usuario, inténtelo de nuevo.";
         }
       });
     },
@@ -70,10 +70,10 @@ var app = new Vue({
         // console.log(response);
         this.app.currentUser = {};
         if(response.status == 200){
-          this.app.successMsg = "Usuario eliminado";
+          this.app.successMsg = "el usuario fue eliminado.";
           this.app.getAllUsers();
         }else{
-          this.app.errorMsg = "Ocurrió un error al eliminar el usuario, inténtelo de nuevo.";
+          this.app.errorMsg = "ocurrió un error al eliminar el usuario, inténtelo de nuevo.";
         }
       });
     }
