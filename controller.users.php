@@ -18,7 +18,12 @@ class Usuarios extends Conexion{
         $consulta = Conexion::query("INSERT INTO usuarios (nombre,correo,telefono) VALUES (:nombre,:correo,:telefono)", ['nombre'=>$nombre,'correo'=>$correo,'telefono'=>$telefono]);
         break;
       case 'update':
-        $consulta = Conexion::query("UPDATE usuarios SET nombre=:nombre,correo=:correo,telefono=:telefono", ['nombre'=>'','correo'=>'','telefono'=>'']);
+        $id = $_POST["id"];
+        $nombre = $_POST["nombre"];
+        $correo = $_POST["correo"];
+        $telefono = $_POST["telefono"];
+
+        $consulta = Conexion::query("UPDATE usuarios SET nombre=:nombre,correo=:correo,telefono=:telefono WHERE id=:id", ['nombre'=>$nombre,'correo'=>$correo,'telefono'=>$telefono,'id'=>$id]);
         break;
 
       case 'delete':

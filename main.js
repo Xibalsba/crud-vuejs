@@ -32,6 +32,9 @@ var app = new Vue({
       }
       return fd;
     },
+    selectUser(user){
+      app.currentUser = user;
+    },
     addUser(){
       var formData = app.toFormData(app.newUser);
       
@@ -42,7 +45,21 @@ var app = new Vue({
           this.app.successMsg = "Usuario creado correctamente";
           this.app.getAllUsers();
         }else{
-          this.app.errorMsg = "Error";
+          this.app.errorMsg = "Ucurrió un error al agregar usuario";
+        }
+      });
+    },
+    updateUser(){
+      var formData = app.toFormData(app.currentUser);
+      
+      axios.post("http://localhost/vuejs/controller.users.php?action=update",formData).then(function(response){
+        // console.log(response);
+        this.app.currentUser = {};
+        if(response.status == 200){
+          this.app.successMsg = "Usuario ha sido actualizado";
+          this.app.getAllUsers();
+        }else{
+          this.app.errorMsg = "Ocurrió un error al actualizar los datos del usuario, inténtelo de nuevo.";
         }
       });
     },

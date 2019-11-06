@@ -63,8 +63,8 @@
                   <td>{{ user.telefono }}</td>
                   <td>
                     <div class="btn-group" role="group">
-                      <button type="button" class="btn btn-secondary btn-sm" @click="modalUsuarioEditar=true"><i class="fas fa-pen mr-2"></i>Editar</button>
-                      <button type="button" class="btn btn-secondary btn-sm" @click="modalUsuarioEliminar=true"><i class="fas fa-trash mr-2"></i>Eliminar</button>
+                      <button type="button" class="btn btn-secondary btn-sm" @click="modalUsuarioEditar=true;selectUser(user);"><i class="fas fa-pen mr-2"></i>Editar</button>
+                      <button type="button" class="btn btn-secondary btn-sm" @click="modalUsuarioEliminar=true;selectUser(user);"><i class="fas fa-trash mr-2"></i>Eliminar</button>
                     </div>
                   </td>
                 </tr>
@@ -126,19 +126,20 @@
                   </div>
                   <div class="modal-body">
                     <form method="post">
+                      <input type="hidden" class="form-control" id="id" name="id" aria-describedby="emailHelp" autocomplete="off" required v-model="currentUser.id">
                       <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" autocomplete="off" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" autocomplete="off" required v-model="currentUser.nombre">
                       </div>
                       <div class="form-group">
                         <label>Correo</label>
-                        <input type="email" class="form-control" id="correo" name="correo" autocomplete="off" required>
+                        <input type="email" class="form-control" id="correo" name="correo" autocomplete="off" required v-model="currentUser.correo">
                       </div>
                       <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" autocomplete="off" required>
+                        <input type="text" class="form-control" id="telefono" name="telefono" autocomplete="off" required v-model="currentUser.telefono">
                       </div>
-                      <button type="submit" class="btn btn-primary">Actualizar usuario</button>
+                      <button type="button" class="btn btn-primary" @click="modalUsuarioEditar=false; updateUser();">Actualizar usuario</button>
                     </form>
                   </div>
                 </div>
