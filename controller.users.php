@@ -27,7 +27,8 @@ class Usuarios extends Conexion{
         break;
 
       case 'delete':
-        $consulta = Conexion::query("DELETE FROM usuarios WHERE id=:id",['id'=>'']);
+        $id = $_POST["id"];
+        $consulta = Conexion::query("DELETE FROM usuarios WHERE id=:id",['id'=>$id]);
         break;
 
       default:

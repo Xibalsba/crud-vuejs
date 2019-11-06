@@ -163,8 +163,8 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <h3 class="text-center">¿Estás seguro de eliminar a <span class="text-danger">Nombre</span>?</h3>
-                    <button type="button" name="button" class="btn btn-danger">Estoy seguro</button>
+                    <h3 class="text-center">¿Estás seguro de eliminar a <span class="text-danger">{{currentUser.nombre}}</span>?</h3>
+                    <button type="button" name="button" class="btn btn-danger" @click="modalUsuarioEliminar=false; deleteUser();">Estoy seguro</button>
                     <button type="button" name="button" class="btn btn-success float-right" @click="modalUsuarioEliminar = false">Cancelar</button>
                   </div>
                 </div>

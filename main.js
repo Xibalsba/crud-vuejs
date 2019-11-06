@@ -63,5 +63,19 @@ var app = new Vue({
         }
       });
     },
+    deleteUser(){
+      var formData = app.toFormData(app.currentUser);
+      
+      axios.post("http://localhost/vuejs/controller.users.php?action=delete",formData).then(function(response){
+        // console.log(response);
+        this.app.currentUser = {};
+        if(response.status == 200){
+          this.app.successMsg = "Usuario eliminado";
+          this.app.getAllUsers();
+        }else{
+          this.app.errorMsg = "Ocurrió un error al eliminar el usuario, inténtelo de nuevo.";
+        }
+      });
+    }
   }
 });
