@@ -50,11 +50,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Julio López</td>
-                  <td>correo@correo.com</td>
-                  <td>1234567890</td>
+                <tr v-for="user in users">
+                  <th scope="row">{{ user.id }}</th>
+                  <td>{{ user.nombre }}</td>
+                  <td>{{ user.correo }}</td>
+                  <td>{{ user.telefono }}</td>
                   <td>
                     <div class="btn-group" role="group">
                       <button type="button" class="btn btn-secondary btn-sm" @click="modalUsuarioEditar=true"><i class="fas fa-pen mr-2"></i>Editar</button>
@@ -168,6 +168,7 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
