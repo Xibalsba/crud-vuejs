@@ -30,11 +30,17 @@
           </div>
         </div>
         <!-- alertas al usuario -->
-        <div class="alert alert-danger" role="alert" v-if="errorMsg">
-          {{ errorMsg }}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="errorMsg">
+          <strong>¡Rayos!</strong> {{ errorMsg }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="errorMsg=false">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <div class="alert alert-success" role="alert" v-if="successMsg">
-          {{ successMsg }}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" v-if="successMsg">
+          <strong>¡En hora buena!</strong> {{ successMsg }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close" @click="successMsg=false">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         <!-- tabla de usuarios -->
         <div class="row">
