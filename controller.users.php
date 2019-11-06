@@ -5,15 +5,18 @@ require_once "db.php";
 class Usuarios extends Conexion{
 
   public function consulta($action){
+
     switch ($action) {
       case 'index':
         $consulta = Conexion::query("SELECT * FROM usuarios");
         break;
-
       case 'insert':
-        $consulta = Conexion::query("INSERT INTO usuarios (nombre,correo,telefono) VALUES (:nombre,:correo,:telefono)", ['nombre'=>'','correo'=>'','telefono'=>'']);
-        break;
+        $nombre = $_POST["nombre"];
+        $correo = $_POST["correo"];
+        $telefono = $_POST["telefono"];
 
+        $consulta = Conexion::query("INSERT INTO usuarios (nombre,correo,telefono) VALUES (:nombre,:correo,:telefono)", ['nombre'=>$nombre,'correo'=>$correo,'telefono'=>$telefono]);
+        break;
       case 'update':
         $consulta = Conexion::query("UPDATE usuarios SET nombre=:nombre,correo=:correo,telefono=:telefono", ['nombre'=>'','correo'=>'','telefono'=>'']);
         break;

@@ -31,10 +31,10 @@
         </div>
         <!-- alertas al usuario -->
         <div class="alert alert-danger" role="alert" v-if="errorMsg">
-          Este es un mensaje de error
+          {{ errorMsg }}
         </div>
         <div class="alert alert-success" role="alert" v-if="successMsg">
-          Este es un mensaje de exito
+          {{ successMsg }}
         </div>
         <!-- tabla de usuarios -->
         <div class="row">
@@ -85,17 +85,17 @@
                     <form method="post">
                       <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" autocomplete="off" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp" autocomplete="off" required v-model="app.newUser.nombre">
                       </div>
                       <div class="form-group">
                         <label>Correo</label>
-                        <input type="email" class="form-control" id="correo" name="correo" autocomplete="off" required>
+                        <input type="email" class="form-control" id="correo" name="correo" autocomplete="off" required v-model="app.newUser.correo">
                       </div>
                       <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" autocomplete="off" required>
+                        <input type="text" class="form-control" id="telefono" name="telefono" autocomplete="off" required v-model="app.newUser.telefono">
                       </div>
-                      <button type="submit" class="btn btn-primary">Agregar usuario</button>
+                      <button type="button" class="btn btn-primary" @click="modalUsuarioNuevo=false; addUser();">Agregar usuario</button>
                     </form>
                   </div>
                 </div>
